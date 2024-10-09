@@ -33,7 +33,7 @@ public class OutboundRestController {
 //    }
     @PostMapping("/{channelId}/outbound")
     @ResponseBody
-    public JSONObject postAccessToken(@PathVariable String channelId, @RequestBody JsonNode requestBody) throws JsonProcessingException {
+    public String postAccessToken(@PathVariable String channelId, @RequestBody JsonNode requestBody) throws JsonProcessingException {
         System.out.println("Request Body" + requestBody);
         System.out.println("Channel Id" + channelId);
 
@@ -93,7 +93,7 @@ public class OutboundRestController {
 
 
 
-        return transformedJsonString;
+        return transformedJsonString.toString();
     }
 
     @GetMapping("/token/{id}")
