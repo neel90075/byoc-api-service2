@@ -47,7 +47,9 @@ public class OutboundRestController {
 
 
         LocalDateTime currentDateTime = LocalDateTime.now();
-        String createdAt = currentDateTime.format(DateTimeFormatter.ISO_DATE_TIME); // ISO_OFFSET_DATE_TIME Format: YYYY-MM-DDTHH:mm:ss.SSS
+//        String createdAt = currentDateTime.format(DateTimeFormatter.ISO_DATE_TIME); // ISO_OFFSET_DATE_TIME Format: YYYY-MM-DDTHH:mm:ss.SSS
+//        String createdAt = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX"));
+        String createdAt = "2024-10-10T00:40:48.694-07:00";
         JSONObject message = new JSONObject();
 
         JSONObject transformedJsonString = new JSONObject();
