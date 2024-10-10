@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("2.0/channel")
@@ -53,7 +54,12 @@ public class OutboundRestController {
         JSONObject message = new JSONObject();
 
         JSONObject transformedJsonString = new JSONObject();
-        message.put("idOnExternalPlatform", "facebook-comment-id");
+
+        UUID uuid = UUID.randomUUID();
+        String uuidAsString = uuid.toString();
+        System.out.println("Your UUID is: " + uuidAsString);
+
+        message.put("idOnExternalPlatform", uuidAsString);
         message.put("createdAtWithMilliseconds", createdAt);
         message.put("url", "https://twitter.com/jack/status/20");
 
