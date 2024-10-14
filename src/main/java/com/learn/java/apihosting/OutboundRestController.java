@@ -39,6 +39,9 @@ public class OutboundRestController {
         System.out.println("Channel Id" + channelId);
 
         String threadId = requestBody.path("thread").path("idOnExternalPlatform").asText();
+        if(threadId.isBlank()){
+            threadId = UUID.randomUUID().toString();
+        }
         String endUserRecipientsId = requestBody.path("endUserRecipients").get(0).path("idOnExternalPlatform").asText();
         String endUserRecipientsName = requestBody.path("endUserRecipients").get(0).path("name").asText();
 
