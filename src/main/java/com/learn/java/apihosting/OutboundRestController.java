@@ -36,12 +36,12 @@ public class OutboundRestController {
     @ResponseBody
     public String postAccessToken(@PathVariable String channelId, @RequestBody JsonNode requestBody) throws JsonProcessingException {
         System.out.println("Request Body" + requestBody);
-        System.out.println("Channel Id" + channelId);
 
         String threadId = requestBody.path("thread").path("idOnExternalPlatform").asText();
         if(threadId.isBlank()){
             threadId = UUID.randomUUID().toString();
         }
+        System.out.println("Thread Id" + threadId);
         String endUserRecipientsId = requestBody.path("endUserRecipients").get(0).path("idOnExternalPlatform").asText();
         String endUserRecipientsName = requestBody.path("endUserRecipients").get(0).path("name").asText();
 
@@ -101,8 +101,6 @@ public class OutboundRestController {
 
         // Output the transformed JSON
         System.out.println("Transformed JSON: " + transformedJsonString);
-
-
 
         return transformedJsonString.toString();
     }
