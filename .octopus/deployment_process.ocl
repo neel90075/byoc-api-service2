@@ -1,0 +1,18 @@
+step "run-a-hello-script" {
+    name = "Run a Hello Script"
+    properties = {
+        Octopus.Action.TargetRoles = "hive-git-targets"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "print(\"Hello World!\") "
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Python"
+            OctopusUseBundledTooling = "False"
+        }
+        worker_pool_variable = ""
+    }
+}
